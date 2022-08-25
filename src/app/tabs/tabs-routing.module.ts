@@ -8,8 +8,8 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('./home/tab1.module').then(m => m.Tab1PageModule)
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'tab2',
@@ -18,13 +18,13 @@ const routes: Routes = [
       {
         path: 'contate-nos',
         loadChildren: () => import('./contate-nos/contate-nos.module').then(m => m.ContateNosPageModule)
-      },
-      {
-        path: '',
-        redirectTo: '/tab1',
-        pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
 
