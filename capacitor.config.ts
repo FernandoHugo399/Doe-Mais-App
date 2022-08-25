@@ -14,12 +14,7 @@ const config: CapacitorConfig = {
         splashFullScreen: false,
         splashImmersive: false
       }
-    },
-  cordova: {
-    preferences: {
-      SimonsKey: true
     }
-  }
 };
 
 export default config;
