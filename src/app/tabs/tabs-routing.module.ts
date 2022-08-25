@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: TabsPage,
     children: [
       {
@@ -18,12 +18,17 @@ const routes: Routes = [
       {
         path: 'contate-nos',
         loadChildren: () => import('./contate-nos/contate-nos.module').then(m => m.ContateNosPageModule)
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/home',
+        pathMatch: 'full'
       }
     ]
   },
   {
-    path: '**',
-    redirectTo: '/home',
+    path: '',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];
