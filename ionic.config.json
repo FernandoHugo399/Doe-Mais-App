@@ -1,0 +1,7 @@
+{
+  "name": "doe-mais-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
