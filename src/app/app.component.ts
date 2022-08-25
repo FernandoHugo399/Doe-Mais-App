@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar, Style } from '@capacitor/status-bar';
 import { AlertController, Platform } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 
@@ -20,12 +21,16 @@ export class AppComponent {
     private location: Location,
   )
   {
+    StatusBar.setOverlaysWebView({ overlay: true });
+
+
     this.platform.ready().then(()=>{
       SplashScreen.hide();
       this.routerEvent();
       this.backButtonEvent();
     });
   }
+
 
   private routerEvent(){
     this.router.events.pipe( filter( ( event: NavigationEnd ) => ( event instanceof NavigationEnd )))
