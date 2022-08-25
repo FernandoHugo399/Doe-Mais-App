@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'doe-mais-App',
+  appName: 'Doe Mais',
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
