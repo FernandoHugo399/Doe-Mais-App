@@ -46,3 +46,17 @@ ion-header {
   }
 }
 
+
+/* title */
+.title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  ion-text{
+    h2{
+      font-weight: 500;
+      letter-spacing: 0.84px;
+    }
+  }
+}
