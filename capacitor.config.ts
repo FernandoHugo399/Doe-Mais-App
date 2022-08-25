@@ -7,9 +7,17 @@ const config: CapacitorConfig = {
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
-    SplashScreen: {
-      androidScaleType: 'CENTER_CROP',
-      launchAutoHide: false
+      SplashScreen: {
+        launchAutoHide: false,
+        androidScaleType: 'CENTER_CROP',
+        showSpinner: true,
+        splashFullScreen: false,
+        splashImmersive: false
+      }
+    },
+  cordova: {
+    preferences: {
+      SimonsKey: true
     }
   }
 };
