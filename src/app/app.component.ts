@@ -2,10 +2,10 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { App } from '@capacitor/app';
-import { SplashScreen } from '@capacitor/splash-screen';
-import { StatusBar, Style } from '@capacitor/status-bar';
-import { AlertController, Platform } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,6 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private router: Router,
-    private alertController: AlertController,
     private location: Location,
   )
   {
@@ -27,10 +26,9 @@ export class AppComponent {
     this.platform.ready().then(()=>{
       SplashScreen.hide();
       this.routerEvent();
-      this.backButtonEvent();
+      this.backButtonEventConfig();
     });
   }
-
 
   private routerEvent(){
     this.router.events.pipe( filter( ( event: NavigationEnd ) => ( event instanceof NavigationEnd )))
@@ -39,7 +37,7 @@ export class AppComponent {
     });
   }
 
-  private backButtonEvent() {
+  private backButtonEventConfig() {
     this.platform.backButton.subscribeWithPriority(999999, ()=>{
       const url = this.router.routerState.snapshot.url;
       this.routesUrl.splice(-2);

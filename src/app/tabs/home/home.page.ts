@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Institutions } from 'src/app/services/institutions/institutions.model';
 import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
+import { NativePageTransitions, NativeTransitionOptions } from '@awesome-cordova-plugins/native-page-transitions/ngx';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomePage implements OnInit {
   public institutions!: Institutions;
   public option_slide = {
     loop: true,
+    slidesPerView: 2.5,
+    spaceBetween: 8,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
@@ -48,9 +51,11 @@ export class HomePage implements OnInit {
     }
   };
 
-  constructor(private institutionsService: InstitutionsService) { }
+  constructor(private institutionsService: InstitutionsService, private nativePageTransitions: NativePageTransitions) { }
 
-
+  ionViewWillLeave() {
+    this.navigationTransitionConfig();
+   }
 
   ngOnInit(): void {
     this.getAllInstitutions();
@@ -59,5 +64,16 @@ export class HomePage implements OnInit {
   getAllInstitutions(): void {
     this.institutionsService.getAllInstitutions()
     .subscribe( res =>  this.institutions = res );
+  }
+
+  private navigationTransitionConfig(){
+    const options: NativeTransitionOptions = {
+      direction: 'left',
+      duration: 200,
+      slowdownfactor: -1,
+      androiddelay: 50
+     };
+
+     this.nativePageTransitions.slide(options);
   }
 }
