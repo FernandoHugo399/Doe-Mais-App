@@ -33,7 +33,11 @@ export class AppComponent {
   private routerEvent(){
     this.router.events.pipe( filter( ( event: NavigationEnd ) => ( event instanceof NavigationEnd )))
     .subscribe((event: NavigationEnd)=>{
+      if(this.routesUrl.length === 0) {
+        this.routesUrl.push(event.id, event.id);
+      } else {
         this.routesUrl.push(event.id);
+      }
     });
   }
 
@@ -44,9 +48,10 @@ export class AppComponent {
 
       if(this.routesUrl.length === 0) {
         App.exitApp();
+      } else {
+        this.location.back();
       }
 
-      this.location.back();
     });
   }
 }

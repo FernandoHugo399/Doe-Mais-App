@@ -53,9 +53,9 @@ export class HomePage implements OnInit {
 
   constructor(private institutionsService: InstitutionsService, private nativePageTransitions: NativePageTransitions) { }
 
-  ionViewWillLeave() {
+  /* ionViewWillLeave() {
     this.navigationTransitionConfig();
-   }
+   } */
 
   ngOnInit(): void {
     this.getAllInstitutions();
@@ -66,7 +66,7 @@ export class HomePage implements OnInit {
     .subscribe( res =>  this.institutions = res );
   }
 
-  private navigationTransitionConfig(){
+  /* private navigationTransitionConfig(){
     const options: NativeTransitionOptions = {
       direction: 'left',
       duration: 200,
@@ -75,5 +75,5 @@ export class HomePage implements OnInit {
      };
 
      this.nativePageTransitions.slide(options);
-  }
+  } */
 }
