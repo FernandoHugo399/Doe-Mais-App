@@ -6,8 +6,24 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding" [fullscreen]="true">
-  <ion-searchbar></ion-searchbar>
+
+  <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+
   <div class="title">
     <ion-text color="secondary"><h2>Instituições</h2></ion-text>
   </div>
+
+  <ion-list *ngIf="institutions">
+    <ion-virtual-scroll [items]="institutions.institutions">
+      <ion-item *virtualItem="let institution">
+        <ion-thumbnail slot="start">
+          <ion-img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="ion-padding">
+          <h2>{{institution.nome}}</h2>
+          <p>{{institution.sobre_curto}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-virtual-scroll>
+  </ion-list>
 </ion-content>
