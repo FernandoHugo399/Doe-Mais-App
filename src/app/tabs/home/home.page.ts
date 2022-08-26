@@ -32,22 +32,6 @@ export class HomePage implements OnInit {
       440: {
         slidesPerView: 4.5,
         spaceBetween: 14
-      },
-      660: {
-        slidesPerView: 5.5,
-        spaceBetween: 18
-      },
-      900: {
-        slidesPerView: 6.5,
-        spaceBetween: 25
-      },
-      1280: {
-        slidesPerView: 7.5,
-        spaceBetween: 30
-      },
-      1600: {
-        slidesPerView: 8.5,
-        spaceBetween: 35
       }
     }
   };
@@ -62,7 +46,7 @@ export class HomePage implements OnInit {
     this.getAllInstitutions();
   }
 
-  public getAllInstitutions(): void {
+  private getAllInstitutions(): void {
     this.institutionsService.getAllInstitutions()
     .subscribe(
       res => { this.institutions = res; },
