@@ -6,6 +6,7 @@ import { Platform } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar } from '@capacitor/status-bar';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +19,13 @@ export class AppComponent {
     private platform: Platform,
     private router: Router,
     private location: Location,
+    private screenOrientation: ScreenOrientation
   )
   {
     StatusBar.setOverlaysWebView({ overlay: true });
 
-
     this.platform.ready().then(()=>{
+      screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
       SplashScreen.hide();
       this.routerEvent();
       this.backButtonEventConfig();

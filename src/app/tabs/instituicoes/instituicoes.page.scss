@@ -1,13 +1,10 @@
-.floating{
-  left: 0;
-  top: 110px;
-  height: 120px;
-  position: fixed;
-  width: 100%;
-  background-color: white;
-  z-index: 1000;
-}
+ion-header{
+  ion-toolbar{
+    --padding-top: 35px;
+    --padding-bottom: 0px;
 
-ion-virtual-scroll{
-  margin-top: 100px;
+    ion-searchbar{
+      --border-radius: 20px;
+    }
+  }
 }
