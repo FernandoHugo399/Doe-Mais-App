@@ -8,3 +8,17 @@ ion-header{
     }
   }
 }
+
+ion-thumbnail{
+  background: linear-gradient(134.76deg, #FFFFFF 4.25%, #F7D7FF 114.44%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-img{
+    width: 48px;
+    height: 48px;
+  }
+}

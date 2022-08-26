@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion-padding">
-    <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+    <ion-searchbar placeholder="Pesquisar" [(ngModel)]="queryText" (ionChange)="filterInstitutions($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding" [fullscreen]="true">
