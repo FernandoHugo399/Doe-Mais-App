@@ -35,11 +35,7 @@ export class AppComponent {
   private routerEvent(){
     this.router.events.pipe( filter( ( event: NavigationEnd ) => ( event instanceof NavigationEnd )))
     .subscribe((event: NavigationEnd)=>{
-      if(this.routesUrl.length === 0) {
-        this.routesUrl.push(event.id, event.id);
-      } else {
         this.routesUrl.push(event.id);
-      }
     });
   }
 
@@ -48,33 +44,11 @@ export class AppComponent {
       const url = this.router.routerState.snapshot.url;
       this.routesUrl.splice(-2);
 
-      if(url === '/tabs/home'){
-        if(this.routesUrl.length === 0) {
-          this.backButtonALert();
-        }
+      if(this.routesUrl.length === 0) {
+        App.exitApp();
       }
 
       this.location.back();
     });
-  }
-
-  private async backButtonALert() {
-    const alert = await this.alertController.create({
-      message: 'Você quer fechar o App ?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'Cancel'
-        },
-        {
-          text: 'Fechar App',
-          handler: () => {
-            App.exitApp();
-          }
-        }
-      ]
-    });
-
-    await alert.present();
   }
 }
