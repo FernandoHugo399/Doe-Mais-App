@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { IGlobalService } from './global.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GlobalService {
+export class GlobalService implements IGlobalService{
 
   public messageError: string;
   public messageSuccess: string;
@@ -25,9 +26,4 @@ export class GlobalService {
     this.messageError = '';
     this.messageSuccess = '';
   }
-}
-
-export interface IRequest{
-  error: string;
-  message: string;
 }

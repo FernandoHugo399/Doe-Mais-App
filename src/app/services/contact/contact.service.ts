@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ISendMessageDTO, IServiceContact } from './contact.model';
 import { HttpClient } from '@angular/common/http';
-import { GlobalService, IRequest } from '../global/global.service';
+import { GlobalService } from '../global/global.service';
+import { IRequest } from '../global/global.model';
 
 @Injectable({
   providedIn: 'root'
