@@ -1,8 +1,9 @@
+import { GlobalService } from './../../services/global/global.service';
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Institutions } from 'src/app/services/institutions/institutions.model';
 import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
-import { NativePageTransitions, NativeTransitionOptions } from '@awesome-cordova-plugins/native-page-transitions/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@awesome-cordova
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  public institutions!: Institutions;
+  public institutions: Institutions;
   public option_slide = {
     loop: true,
     slidesPerView: 2.5,
@@ -51,20 +52,36 @@ export class HomePage implements OnInit {
     }
   };
 
-  constructor(private institutionsService: InstitutionsService, private nativePageTransitions: NativePageTransitions) { }
-
-  /* ionViewWillLeave() {
-    this.navigationTransitionConfig();
-   } */
+  constructor(
+    private institutionsService: InstitutionsService,
+    private globalService: GlobalService,
+    private toastController: ToastController
+    ) { }
 
   ngOnInit(): void {
     this.getAllInstitutions();
   }
 
-  getAllInstitutions(): void {
+  public getAllInstitutions(): void {
     this.institutionsService.getAllInstitutions()
-    .subscribe( res =>  this.institutions = res );
+    .subscribe(
+      res => { this.institutions = res; },
+      err => this.errToastr('Ocorreu ao carregar as instituições')
+    );
   }
+
+  private async errToastr(message: string){
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      color: 'danger'
+    });
+    toast.present();
+  }
+
+  /* ionViewWillLeave() {
+    this.navigationTransitionConfig();
+   } */
 
   /* private navigationTransitionConfig(){
     const options: NativeTransitionOptions = {

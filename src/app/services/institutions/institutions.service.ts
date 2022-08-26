@@ -26,8 +26,8 @@ export class InstitutionsService implements IServiceInstitutions {
     return this.http.get<Institution>(this.baseURL + '/institution/' + id)
     .pipe(tap((res)=>{
      this.globalService.verifyRequest(res);
-      if(this.globalService.messageError) {
-        this.router.navigate(['instituicoes']);
+      if(this.globalService.errMessage) {
+        this.router.navigate(['tabs/instituicoes']);
       }
     }));
   }
@@ -36,8 +36,8 @@ export class InstitutionsService implements IServiceInstitutions {
     return this.http.get<InstitutionBankInformation>(this.baseURL + '/institution-information/' + id)
     .pipe(tap((res)=>{
       this.globalService.verifyRequest(res);
-      if(this.globalService.messageError) {
-        this.router.navigate(['instituicoes']);
+      if(this.globalService.errMessage) {
+        this.router.navigate(['tabs/instituicoes']);
       }
     }));
   }

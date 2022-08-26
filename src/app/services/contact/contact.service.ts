@@ -15,9 +15,8 @@ export class ContactService implements IServiceContact {
     this.baseURL = globalService.baseURL;
    }
 
-  public sendMessage(message: ISendMessageDTO, inputSubmit: { nativeElement: HTMLInputElement }): Observable<IRequest> {
-    inputSubmit.nativeElement.classList.add('input-disabled');
-    inputSubmit.nativeElement.disabled = true;
+  public sendMessage(message: ISendMessageDTO, toggleButton: boolean): Observable<IRequest> {
+    toggleButton = true;
 
     return this.http.post<IRequest>(`${this.baseURL}/save-message`, {
       nome: message.nome,
@@ -35,8 +34,7 @@ export class ContactService implements IServiceContact {
       this.globalService.verifyRequest(res);
     }))
     .pipe(tap(()=>{
-      inputSubmit.nativeElement.classList.remove('input-disabled');
-      inputSubmit.nativeElement.disabled = false;
+      toggleButton = false;
     }));
   }
 
