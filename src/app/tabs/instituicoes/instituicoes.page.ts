@@ -1,3 +1,4 @@
+import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class InstituicoesPage {
 
-  constructor() {}
+  constructor(private institutionsService: InstitutionsService) {
+
+  }
 
 }

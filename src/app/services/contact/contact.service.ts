@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ISendMessageDTO, IServiceContact } from './contact.model';
-import GlobalVars, { IRequest } from 'src/app/global/global.model';
 import { HttpClient } from '@angular/common/http';
+import { GlobalService, IRequest } from '../global/global.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService implements IServiceContact {
-  private baseURL = GlobalVars.baseURL;
-  constructor(private http: HttpClient) { }
+  private baseURL: string;
+  constructor(private http: HttpClient, private globalService: GlobalService) {
+    this.baseURL = globalService.baseURL;
+   }
 
   public sendMessage(message: ISendMessageDTO, inputSubmit: { nativeElement: HTMLInputElement }): Observable<IRequest> {
     inputSubmit.nativeElement.classList.add('input-disabled');
@@ -29,7 +31,7 @@ export class ContactService implements IServiceContact {
       message.mensagem = '';
     }))
     .pipe(tap((res)=>{
-      GlobalVars.verifyRequest(res);
+      this.globalService.verifyRequest(res);
     }))
     .pipe(tap(()=>{
       inputSubmit.nativeElement.classList.remove('input-disabled');
