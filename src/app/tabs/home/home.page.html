@@ -17,8 +17,22 @@
       <div class="logo">
         <img src="/assets/icon/favicon.png" alt="Ícone logo">
       </div> <!-- logo -->
-    </div><!-- container -->
+    </div> <!-- container -->
   </div> <!-- banner -->
 
+  <div class="title">
+    <ion-text color="secondary">
+      <h4>Conheça nossas instituições parceiras</h4>
+    </ion-text>
+  </div> <!-- title -->
+
+
+  <div class="institutions" *ngIf="institutions">
+    <ion-slides [options]="option_slide">
+      <ion-slide *ngFor="let institution of institutions.institutions">
+        <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}" alt="{{institution.nome}}">
+      </ion-slide>
+    </ion-slides>
+  </div> <!-- institutions -->
 
 </ion-content>

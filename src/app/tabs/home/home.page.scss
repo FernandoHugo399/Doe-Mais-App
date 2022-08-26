@@ -11,6 +11,7 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 30px;
+  margin-bottom: 10px;
 
   .container{
     display: flex;
@@ -49,6 +50,28 @@
         width: 100%;
         height: 100%;
       }
+    }
+  }
+}
+
+.title{
+  padding-bottom: 10px;
+}
+
+ion-slides{
+  height: 100px;
+
+  ion-slide{
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(134.76deg, #FFFFFF 4.25%, #F7D7FF 114.44%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 4px 4px 4px rgba(228, 178, 226, 0.5);
+    border-radius: 12px;
+
+    img{
+      width: 70px;
+      height: 70px;
     }
   }
 }
