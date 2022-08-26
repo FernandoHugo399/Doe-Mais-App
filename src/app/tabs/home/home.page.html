@@ -30,7 +30,9 @@
   <div class="institutions" *ngIf="institutions">
     <ion-slides [options]="option_slide">
       <ion-slide *ngFor="let institution of institutions.institutions">
-        <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}" alt="{{institution.nome}}">
+        <a routerLink="/instituicao/{{institution.id_instituicao}}">
+          <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}" alt="{{institution.nome}}">
+        </a>
       </ion-slide>
     </ion-slides>
   </div> <!-- institutions -->

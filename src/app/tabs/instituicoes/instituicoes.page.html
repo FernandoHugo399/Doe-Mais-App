@@ -7,14 +7,14 @@
 </ion-header>
 <ion-content class="ion-padding" [fullscreen]="true">
 
-  <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+  <div class="floating">
+    <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+    <div class="title">
+      <ion-text color="secondary"><h2>Instituições</h2></ion-text>
+    </div>
+  </div> <!-- floating -->
 
-  <div class="title">
-    <ion-text color="secondary"><h2>Instituições</h2></ion-text>
-  </div>
-
-  <ion-list *ngIf="institutions">
-    <ion-virtual-scroll [items]="institutions.institutions">
+    <ion-virtual-scroll [items]="institutions.institutions" *ngIf="institutions" approxItemHeight="52px" >
       <ion-item *virtualItem="let institution">
         <ion-thumbnail slot="start">
           <ion-img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}"></ion-img>
@@ -25,5 +25,4 @@
         </ion-label>
       </ion-item>
     </ion-virtual-scroll>
-  </ion-list>
 </ion-content>
