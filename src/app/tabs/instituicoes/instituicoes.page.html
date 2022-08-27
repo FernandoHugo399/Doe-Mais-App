@@ -11,7 +11,7 @@
 
   <ion-list>
     <ion-item-divider></ion-item-divider>
-    <ion-virtual-scroll [items]="institutions.institutions" *ngIf="institutions" approxItemHeight="52px" >
+    <ion-virtual-scroll [items]="institutions" *ngIf="institutions" approxItemHeight="52px" >
       <ion-item *virtualItem="let institution">
         <ion-thumbnail >
           <ion-img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}"></ion-img>

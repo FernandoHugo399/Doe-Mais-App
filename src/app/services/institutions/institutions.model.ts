@@ -34,6 +34,21 @@ export interface Institutions {
   }[];
 }
 
+export interface InstitutionFilter{
+  id_instituicao: number;
+  nome: string;
+  logo: string;
+  email: string;
+  localizacao: string;
+  telefone_1: string;
+  telefone_2?: string;
+  cpf_responsavel: string;
+  cnpj?: string;
+  website?: string;
+  sobre: string;
+  sobre_curto: string;
+}
+
 export interface InstitutionBankInformation{
   institutionInformation: {
     id_dados: number;
