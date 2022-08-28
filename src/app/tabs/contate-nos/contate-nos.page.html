@@ -15,26 +15,26 @@
   <div class="form">
     <ion-item>
       <ion-label position="floating">Nome</ion-label>
-      <ion-input clearInput></ion-input>
+      <ion-input clearInput [(ngModel)]="message.nome" name="nome" maxlength="50" ngDefaultControl></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input clearInput></ion-input>
+      <ion-input clearInput [(ngModel)]="message.email" name="email" maxlength="250" ngDefaultControl></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Telefone</ion-label>
-      <ion-input clearInput></ion-input>
+      <ion-input clearInput [(ngModel)]="message.telefone" name="telefone" ngDefaultControl></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Mensagem</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea [(ngModel)]="message.mensagem" name="mensagem" ngDefaultControl></ion-textarea>
     </ion-item>
 
     <div class="center-button">
-      <ion-button>Enviar</ion-button>
+      <ion-button [disabled]="disableButton" (click)="sendMessage()">Enviar</ion-button>
     </div>
   </div>
 

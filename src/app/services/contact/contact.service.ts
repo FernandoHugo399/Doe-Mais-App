@@ -15,9 +15,7 @@ export class ContactService implements IServiceContact {
     this.baseURL = globalService.baseURL;
    }
 
-  public sendMessage(message: ISendMessageDTO, toggleButton: boolean): Observable<IRequest> {
-    toggleButton = true;
-
+  public sendMessage(message: ISendMessageDTO): Observable<IRequest> {
     return this.http.post<IRequest>(`${this.baseURL}/save-message`, {
       nome: message.nome,
       email: message.email,
@@ -32,9 +30,6 @@ export class ContactService implements IServiceContact {
     }))
     .pipe(tap((res)=>{
       this.globalService.verifyRequest(res);
-    }))
-    .pipe(tap(()=>{
-      toggleButton = false;
     }));
   }
 

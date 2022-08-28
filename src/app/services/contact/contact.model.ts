@@ -5,10 +5,6 @@ export interface IServiceContact {
   sendMessage(message: ISendMessageDTO, toggleButton: boolean): Observable<IRequest>;
 }
 
-export interface IServiceContactMethods {
-  sendMessage(): void;
-};
-
 
 export interface ISendMessageDTO{
   nome: string;
