@@ -5,7 +5,17 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'saiba-mais/:id',
+    loadChildren: () => import('./pages/saiba-mais/saiba-mais.module').then( m => m.SaibaMaisPageModule)
+  },
+  {
+    path: 'doar-agora/:id',
+    loadChildren: () => import('./pages/doar-agora/doar-agora.module').then( m => m.DoarAgoraPageModule)
   }
+
+
 ];
 @NgModule({
   imports: [

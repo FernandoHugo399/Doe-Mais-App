@@ -38,7 +38,6 @@ export class HomePage implements OnInit {
 
   constructor(
     private institutionsService: InstitutionsService,
-    private globalService: GlobalService,
     private toastController: ToastController
     ) { }
 
@@ -62,19 +61,4 @@ export class HomePage implements OnInit {
     });
     toast.present();
   }
-
-  /* ionViewWillLeave() {
-    this.navigationTransitionConfig();
-   } */
-
-  /* private navigationTransitionConfig(){
-    const options: NativeTransitionOptions = {
-      direction: 'left',
-      duration: 200,
-      slowdownfactor: -1,
-      androiddelay: 50
-     };
-
-     this.nativePageTransitions.slide(options);
-  } */
 }

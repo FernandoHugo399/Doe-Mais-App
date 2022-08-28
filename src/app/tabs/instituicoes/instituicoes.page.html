@@ -12,7 +12,7 @@
   <ion-list>
     <ion-item-divider></ion-item-divider>
     <ion-virtual-scroll [items]="institutions" *ngIf="institutions" approxItemHeight="52px" >
-      <ion-item *virtualItem="let institution" routerLink="/instituicao/{{institution.id_instituicao}}">
+      <ion-item *virtualItem="let institution" routerLink="/saiba-mais/{{institution.id_instituicao}}">
         <ion-thumbnail >
           <ion-img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}"></ion-img>
         </ion-thumbnail>
