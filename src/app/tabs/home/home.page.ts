@@ -1,7 +1,7 @@
 import { GlobalService } from './../../services/global/global.service';
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
-import { Institutions } from 'src/app/services/institutions/institutions.model';
+import { Institution } from 'src/app/services/institutions/institutions.model';
 import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
 import { ToastController } from '@ionic/angular';
 
@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  public institutions: Institutions;
+  public institutions: Institution[];
   public option_slide = {
     loop: true,
     slidesPerView: 2.5,

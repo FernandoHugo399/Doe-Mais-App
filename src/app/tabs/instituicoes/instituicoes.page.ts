@@ -2,7 +2,7 @@ import { InstitutionsService } from 'src/app/services/institutions/institutions.
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from 'src/app/services/global/global.service';
 import { SearchbarCustomEvent, ToastController } from '@ionic/angular';
-import { InstitutionFilter, Institutions } from 'src/app/services/institutions/institutions.model';
+import { Institution } from 'src/app/services/institutions/institutions.model';
 
 @Component({
   selector: 'app-instituicoes',
@@ -10,9 +10,9 @@ import { InstitutionFilter, Institutions } from 'src/app/services/institutions/i
   styleUrls: ['instituicoes.page.scss']
 })
 export class InstituicoesPage implements OnInit{
-  public allInstitutions: Institutions;
+  public allInstitutions: Institution[];
   public queryText = '';
-  public institutions: InstitutionFilter[];
+  public institutions: Institution[];
 
   constructor(
     private institutionsService: InstitutionsService,
@@ -36,17 +36,17 @@ export class InstituicoesPage implements OnInit{
     const query = event.target.value;
 
     if(query && query.trim() !== ''){
-      this.institutions = this.allInstitutions.institutions
+      this.institutions = this.allInstitutions
       .filter((institution)=> institution.nome.toLowerCase().indexOf(query.toLowerCase()) > -1 );
     } else {
-      this.institutions = this.allInstitutions.institutions;
+      this.institutions = this.allInstitutions;
     }
   }
 
   private getAllInstitutions(): void {
     this.institutionsService.getAllInstitutions()
     .subscribe(
-      res => { this.allInstitutions = res; this.institutions = this.allInstitutions.institutions; },
+      res => { this.allInstitutions = res; this.institutions = this.allInstitutions; },
       err => this.errToastr('Ocorreu ao carregar as instituições')
     );
   }
