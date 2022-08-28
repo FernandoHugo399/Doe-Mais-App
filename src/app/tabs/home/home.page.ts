@@ -13,10 +13,11 @@ import { ToastController } from '@ionic/angular';
 export class HomePage implements OnInit {
   public institutions: Institution[];
   public option_slide = {
-    loop: true,
-    slidesPerView: 2.5,
+    initialSlide: 0,
+    slidesPerView: 1,
     spaceBetween: 8,
     autoplay: {
+      loop :true,
       delay: 2500,
       disableOnInteraction: false,
     },
