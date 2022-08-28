@@ -8,3 +8,7 @@
     margin: 5px 0;
   }
 }
+ion-item {
+  --highlight-color-invalid: var(--ion-color-primary); // invalid underline color
+  --highlight-color-valid: var(--ion-color-primary); // valid underline color
+}
