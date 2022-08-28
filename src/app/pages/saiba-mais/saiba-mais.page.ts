@@ -17,7 +17,7 @@ export class SaibaMaisPage implements OnInit {
     private route: Router,
     private institutionsService: InstitutionsService,
     private globalService: GlobalService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') as string;

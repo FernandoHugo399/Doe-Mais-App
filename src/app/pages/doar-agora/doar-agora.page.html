@@ -7,14 +7,43 @@
 </ion-header>
 
 <ion-content class="ion-padding" [fullscreen]="true">
-  <div class="short-desc-institution">
-    <div class="logo-institution">
+  <div *ngIf="institutionBankInformation">
+      <div class="short-desc-institution">
+        <div class="logo-institution">
+          <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institutionBankInformation.logo}}" alt="{{institutionBankInformation.nome}}">
+        </div> <!-- logp-institution -->
 
-    </div> <!-- logp-institution -->
+        <div class="title">
+          <ion-text color="secondary"><h2>A sua ajuda transforma vidas!</h2></ion-text>
+        </div> <!-- title -->
 
-    <div class="title">
-      <ion-text color="secondary"><h2>A sua ajuda transforma vidas!</h2></ion-text>
-      <ion-text><p></p></ion-text>
-    </div> <!-- title -->
-  </div>  <!-- short-desc-institution -->
+        <div class="about">
+          <ion-text><p>{{institutionBankInformation.sobre_curto}}</p></ion-text>
+        </div> <!-- about -->
+      </div>  <!-- short-desc-institution -->
+
+      <div class="bank-informations">
+
+        <div class="title">
+          <ion-text color="secondary"><h2>Doação em dinheiro</h2></ion-text>
+        </div> <!-- title -->
+
+        <div class="informations">
+          <ion-text color="secondary"><h4>{{institutionBankInformation.banco_pix_1}}</h4></ion-text>
+          <p><ion-text color="secondary"><strong>PIX:</strong></ion-text>{{institutionBankInformation.pix_1}}</p>
+          <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institutionBankInformation.qr_code_pix_1}}">
+        </div> <!-- informations -->
+
+        <div class="informations" *ngIf="institutionBankInformation.banco_pix_2">
+          <ion-text color="secondary"><h4>{{institutionBankInformation.banco_pix_2}}</h4></ion-text>
+          <p><ion-text color="secondary"><strong>PIX:</strong></ion-text>{{institutionBankInformation.pix_2}}</p>
+          <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institutionBankInformation.qr_code_pix_2}}">
+        </div> <!-- informations -->
+
+        <div class="informations">
+          <ion-text color="secondary"><h4>Localização</h4></ion-text>
+          <span>{{institutionBankInformation.localizacao}}</span>
+        </div> <!-- informations -->
+      </div>
+  </div>
 </ion-content>
