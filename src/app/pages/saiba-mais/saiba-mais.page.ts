@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global/global.service';
@@ -16,8 +17,16 @@ export class SaibaMaisPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private route: Router,
     private institutionsService: InstitutionsService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private toastController: ToastController
   ) { }
+
+  ionViewDidLeave() {
+    if(this.globalService.errMessage) {
+      this.errToastr(this.globalService.errMessage);
+      this.globalService.cleanVars();
+    }
+  }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') as string;
@@ -30,5 +39,14 @@ export class SaibaMaisPage implements OnInit {
         this.route.navigate(['tabs/instituicoes']);
       }
     );
+  }
+
+  private async errToastr(message: string){
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      color: 'danger'
+    });
+    toast.present();
   }
 }

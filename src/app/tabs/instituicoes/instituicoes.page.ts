@@ -16,16 +16,10 @@ export class InstituicoesPage implements OnInit{
 
   constructor(
     private institutionsService: InstitutionsService,
-    private globalService: GlobalService,
     private toastController: ToastController
   )
   { }
 
-  ionViewWillEnter() {
-    if(this.globalService.errMessage) {
-      this.errToastr(this.globalService.errMessage);
-    }
-  }
 
   ngOnInit(): void {
     this.getAllInstitutions();

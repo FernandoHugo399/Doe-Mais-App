@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global/global.service';
@@ -17,11 +18,19 @@ export class DoarAgoraPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private route: Router,
     private institutionsService: InstitutionsService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private toastController: ToastController
   ) { }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     this.request(this.id);
+  }
+
+  ionViewDidLeave() {
+    if(this.globalService.errMessage) {
+      this.errToastr(this.globalService.errMessage);
+      this.globalService.cleanVars();
+    }
   }
 
   public request(id: string): void {
@@ -33,5 +42,14 @@ export class DoarAgoraPage implements OnInit {
         this.route.navigate(['tabs/instituicoes']);
       }
     );
+  }
+
+  private async errToastr(message: string){
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      color: 'danger'
+    });
+    toast.present();
   }
 }
