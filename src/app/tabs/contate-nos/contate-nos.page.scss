@@ -1,0 +1,16 @@
+.form{
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 30px 2%;
+  box-shadow: 5px 5px 8px 2px rgba(55,10,77,0.40);
+  ion-input{
+    margin: 5px 0;
+  }
+
+  .center-button{
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+  }
+}

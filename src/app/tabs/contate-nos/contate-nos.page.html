@@ -6,6 +6,46 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding" [fullscreen]="true">
 
+  <div class="title">
+    <ion-text color="secondary"><h2>Contate-nos</h2></ion-text>
+  </div>
+
+  <div class="form">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mensagem</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+
+    <div class="center-button">
+      <ion-button>Enviar</ion-button>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-whatsapp"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="mail-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
