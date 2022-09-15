@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div *ngIf="institution">
+    <div class="short-desc-institution">
+      <div class="logo-institution">
+        <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}" alt="{{institution.nome}}">
+      </div> <!-- logp-institution -->
+
+      <div class="title">
+        <ion-text color="secondary"><h2>A sua ajuda transforma vidas!</h2></ion-text>
+      </div> <!-- title -->
+
+      <div class="about">
+        <ion-text><p>{{institution.sobre_curto}}</p></ion-text>
+      </div> <!-- about -->
+
+      <div class="center-button">
+        <ion-button routerLink="/doar-agora/2">DOAR AGORA</ion-button>
+      </div> <!-- center-button -->
+    </div>  <!-- short-desc-institution -->
+
+    <div class="desc-institution">
+      <ion-text><p>{{institution.sobre}}</p></ion-text>
+    </div> <!-- desc-institution -->
+
+    <div class="contact-informations">
+      <div class="logo-institution">
+        <img src="https://storage.googleapis.com/quantum-ether-335121.appspot.com/{{institution.logo}}" alt="{{institution.nome}}">
+      </div> <!-- logo-institution -->
+
+      <div class="contact">
+        <ion-text color="primary">
+          <p *ngIf="institution.website">Site: {{institution.website}}</p>
+          <p>Email: {{institution.email}}</p>
+          <p>Telefone: {{institution.telefone_1}}</p>
+          <p *ngIf="institution.telefone_2">Telefone: {{institution.telefone_2}}</p>
+          <p>Localização: {{institution.localizacao}}</p>
+        </ion-text>
+      </div>
+    </div> <!-- contact-informations -->
+  </div>
+</ion-content>

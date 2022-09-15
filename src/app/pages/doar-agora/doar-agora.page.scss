@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.short-desc-institution{
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    max-width: 150px;
+  }
+}
+
+
+.bank-informations{
+  margin-top: 50px;
+  background: linear-gradient(153.08deg, #FCFCFC 0%, #EEEEEE 100%);
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 0 5% 60px 5%;
+
+  .informations{
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img{
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h4{
+      margin: 10px 0 3px 0;
+    }
+
+    p{
+      padding-bottom: 5px;
+    }
+  }
+}

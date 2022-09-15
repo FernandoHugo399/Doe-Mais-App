@@ -1,0 +1,27 @@
+ion-header{
+  ion-toolbar{
+    --padding-top: 35px;
+    --padding-bottom: 0px;
+
+    ion-searchbar{
+      --border-radius: 20px;
+      --placeholder-color: #000;
+      --icon-color: #000;
+      --color: #000;
+    }
+  }
+}
+
+ion-thumbnail{
+  background: linear-gradient(134.76deg, #FFFFFF 4.25%, #F7D7FF 114.44%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-img{
+    width: 48px;
+    height: 48px;
+  }
+}

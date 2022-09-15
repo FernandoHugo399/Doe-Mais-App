@@ -1,0 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.short-desc-institution{
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .center-button{
+    padding: 15px 0 30px 0;
+  }
+}
+
+.desc-institution{
+  text-align: justify;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-informations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    padding-top: 30px;
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .contact{
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 15px;
+
+    p{
+      padding: 2px;
+    }
+  }
+}

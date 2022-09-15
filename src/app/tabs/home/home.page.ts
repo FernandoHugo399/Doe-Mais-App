@@ -1,7 +1,9 @@
+import { GlobalService } from './../../services/global/global.service';
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
-import { Institutions } from 'src/app/services/institutions/institutions.model';
+import { Institution } from 'src/app/services/institutions/institutions.model';
 import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +11,13 @@ import { InstitutionsService } from 'src/app/services/institutions/institutions.
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  public institutions!: Institutions;
+  public institutions: Institution[];
   public option_slide = {
-    loop: true,
+    initialSlide: 0,
+    slidesPerView: 1,
+    spaceBetween: 8,
     autoplay: {
+      loop :true,
       delay: 2500,
       disableOnInteraction: false,
     },
@@ -28,36 +33,33 @@ export class HomePage implements OnInit {
       440: {
         slidesPerView: 4.5,
         spaceBetween: 14
-      },
-      660: {
-        slidesPerView: 5.5,
-        spaceBetween: 18
-      },
-      900: {
-        slidesPerView: 6.5,
-        spaceBetween: 25
-      },
-      1280: {
-        slidesPerView: 7.5,
-        spaceBetween: 30
-      },
-      1600: {
-        slidesPerView: 8.5,
-        spaceBetween: 35
       }
     }
   };
 
-  constructor(private institutionsService: InstitutionsService) { }
-
-
+  constructor(
+    private institutionsService: InstitutionsService,
+    private toastController: ToastController
+    ) { }
 
   ngOnInit(): void {
     this.getAllInstitutions();
   }
 
-  getAllInstitutions(): void {
+  private getAllInstitutions(): void {
     this.institutionsService.getAllInstitutions()
-    .subscribe( res =>  this.institutions = res );
+    .subscribe(
+      res => { this.institutions = res; },
+      err => this.errToastr('Ocorreu ao carregar as instituições')
+    );
+  }
+
+  private async errToastr(message: string){
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      color: 'danger'
+    });
+    toast.present();
   }
 }

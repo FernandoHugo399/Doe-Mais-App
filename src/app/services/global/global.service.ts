@@ -6,24 +6,24 @@ import { IGlobalService } from './global.model';
 })
 export class GlobalService implements IGlobalService{
 
-  public messageError: string;
-  public messageSuccess: string;
+  public errMessage: string;
+  public successMessage: string;
   /* public baseURL: string = 'http://localhost:3333' */
   public baseURL = 'https://api-doe-mais.herokuapp.com';
 
   public verifyRequest(res: any){
     if(!res.error) {
-      this.messageSuccess = res.message;
-      this.messageError = '';
+      this.successMessage = res.message;
+      this.errMessage = '';
 
     } else {
-      this.messageError = res.error;
-      this.messageSuccess = '';
+      this.errMessage = res.error;
+      this.successMessage = '';
     }
   }
 
   public cleanVars(): void{
-    this.messageError = '';
-    this.messageSuccess = '';
+    this.errMessage = '';
+    this.successMessage = '';
   }
 }

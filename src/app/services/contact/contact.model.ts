@@ -1,18 +1,14 @@
-import { IRequest } from './../../global/global.model';
-import { Observable } from "rxjs";
+import { IRequest } from '../global/global.model';
+import { Observable } from 'rxjs';
 
 export interface IServiceContact {
-  sendMessage(message: ISendMessageDTO, inputSubmit: { nativeElement: HTMLInputElement }): Observable<IRequest>
-}
-
-export interface IServiceContactMethods {
-  sendMessage(): void
+  sendMessage(message: ISendMessageDTO, toggleButton: boolean): Observable<IRequest>;
 }
 
 
 export interface ISendMessageDTO{
-  nome: string
-  email: string
-  telefone: string
-  mensagem: string
+  nome: string;
+  email: string;
+  telefone: string;
+  mensagem: string;
 }
