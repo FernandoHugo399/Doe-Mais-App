@@ -27,7 +27,7 @@
   </div> <!-- title -->
 
 
-  <div class="institutions" *ngIf="institutions">
+  <div class="institutions" *ngIf="institutions; else skeleton">
     <ion-slides [options]="option_slide">
       <ion-slide *ngFor="let institution of institutions">
         <a routerLink="/saiba-mais/{{institution.id_instituicao}}">
@@ -37,3 +37,40 @@
     </ion-slides>
   </div> <!-- institutions -->
 </ion-content>
+
+<ng-template #skeleton>
+  <div class="skeleton">
+    <ion-slides [options]="option_slide">
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+      <ion-slide>
+        <ion-skeleton-text [animated]="true" style="width: 80px; height: 80px;"></ion-skeleton-text>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ng-template>
